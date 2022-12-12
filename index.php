@@ -1,15 +1,27 @@
 <?php
 
 require __DIR__ . '/Models/Product.php';
-require __DIR__ . '/Models/Category.php';
-require __DIR__ . '/Models/Food.php';
-require __DIR__ . '/Models/Game.php';
-require __DIR__ . '/Models/Kennels.php';
+// require __DIR__ . '/Models/Category.php';
+// require __DIR__ . '/Models/Food.php';
+// require __DIR__ . '/Models/Game.php';
+// require __DIR__ . '/Models/Kennels.php';
+// require __DIR__ . '/Traits/Sizable.php';
+// require __DIR__ . '/Traits/Weightable.php';
 
-$geo_freesbee_tornado = new Game('plastic', 'Georplast', 'Geo Frisbee Tornado', 'Il Frisbee per cani Tornado di Georplast si distingue da tutti gli altri giochi canini per il suo design innovativo, creato per facilitare la presa del tuo amico a quattro zampe', 2.25);
-$geo_freesbee_tornado->set_weight(300, 'grammi');
-$geo_freesbee_tornado->set_size('30x30', 'cm');
-var_dump($geo_freesbee_tornado);
+
+$products = [
+    $geo_freesbee_tornado = new Product(new Game('plastic'), new Category('dog'), 'Georplast', 'Geo Frisbee Tornado', 'Il Frisbee per cani Tornado di Georplast si distingue da tutti gli altri giochi canini per il suo design innovativo, creato per facilitare la presa del tuo amico a quattro zampe', 2.25),
+    $royal_canin_v_diet = new Product(new Food('pollo'), new Category('cat'), 'Royal canin', 'Royal Canin V-Diet Urinary S/O Multipack sfilaccetti Gatto', 'Royal Canin V-Diet Urinary S/O Multipack è un elemento umido dietetico appositamente studiato per gatti adulti che soffrono di malattie delle vie urinarie.', 12.25),
+]
+
+// $geo_freesbee_tornado->set_weight(300, 'grammi');
+// $geo_freesbee_tornado->set_size('30x30', 'cm');
+// var_dump($geo_freesbee_tornado);
+
+
+// $royal_canin_v_diet->set_weight(300, 'grammi');
+// var_dump($royal_canin_v_diet);
+
 
 ?>
 
@@ -32,7 +44,29 @@ var_dump($geo_freesbee_tornado);
 <body>
 
 
-
+    <div class="container">
+        <div class="row">
+            <?php foreach ($products as $product) { ?>
+                <div class="col-4">
+                    <div class="card">
+                        <h5 class="card-title">
+                            <?php echo $product->name ?>
+                        </h5>
+                        <div>
+                            <?php echo $product->brand ?>
+                        </div>
+                        <p class="card-text">
+                            <?php echo $product->description ?>
+                        </p>
+                        <p class="card-text">
+                            <?php echo $product->price ?>
+                        </p>
+                        <a href="#" class="btn btn-primary">Add cart</a>
+                    </div>
+                </div>
+            <?php }; ?>
+        </div>
+    </div>
 
 
     <!-- Bootstrap script -->
