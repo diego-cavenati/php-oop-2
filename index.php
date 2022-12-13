@@ -1,27 +1,25 @@
 <?php
 
-require __DIR__ . '/Models/Product.php';
-// require __DIR__ . '/Models/Category.php';
-// require __DIR__ . '/Models/Food.php';
-// require __DIR__ . '/Models/Game.php';
-// require __DIR__ . '/Models/Kennels.php';
-// require __DIR__ . '/Traits/Sizable.php';
-// require __DIR__ . '/Traits/Weightable.php';
+require_once __DIR__ . '/Models/Product.php';
+require_once __DIR__ . '/Models/Category.php';
+require_once __DIR__ . '/Models/Food.php';
+require_once __DIR__ . '/Models/Game.php';
+require_once __DIR__ . '/Models/Kennels.php';
+require_once __DIR__ . '/Traits/Sizable.php';
+require_once __DIR__ . '/Traits/Weightable.php';
 
 
 $products = [
-    $geo_freesbee_tornado = new Product(new Game('plastic'), new Category('dog'), 'Georplast', 'Geo Frisbee Tornado', 'Il Frisbee per cani Tornado di Georplast si distingue da tutti gli altri giochi canini per il suo design innovativo, creato per facilitare la presa del tuo amico a quattro zampe', 2.25),
-    $royal_canin_v_diet = new Product(new Food('pollo'), new Category('cat'), 'Royal canin', 'Royal Canin V-Diet Urinary S/O Multipack sfilaccetti Gatto', 'Royal Canin V-Diet Urinary S/O Multipack è un elemento umido dietetico appositamente studiato per gatti adulti che soffrono di malattie delle vie urinarie.', 12.25),
+    '0'=> $geo_freesbee_tornado = new Game('Georplast', 'Geo Frisbee Tornado', 'Il Frisbee per cani Tornado di Georplast si distingue da tutti gli altri giochi canini per il suo design innovativo, creato per facilitare la presa del tuo amico a quattro zampe', 2, new Category('dog'), 'plastic'),
+    $royal_canin_v_diet = new Food('Royal canin', 'Royal Canin V-Diet Urinary S/O Multipack sfilaccetti Gatto', 'Royal Canin V-Diet Urinary S/O Multipack è un elemento umido dietetico appositamente studiato per gatti adulti che soffrono di malattie delle vie urinarie.', 12.25, new Category('cat'), 'pollo'),
 ]
 
-// $geo_freesbee_tornado->set_weight(300, 'grammi');
-// $geo_freesbee_tornado->set_size('30x30', 'cm');
-// var_dump($geo_freesbee_tornado);
 
+$geo_freesbee_tornado->set_size('30x30', 'cm');
+var_dump($geo_freesbee_tornado);
 
 // $royal_canin_v_diet->set_weight(300, 'grammi');
 // var_dump($royal_canin_v_diet);
-
 
 ?>
 
